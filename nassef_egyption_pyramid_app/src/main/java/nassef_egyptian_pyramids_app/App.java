@@ -46,7 +46,7 @@ public class App
         initializePharaoh(pharaohJSONArray);
 
         // read pyramids
-        String pyramidFile = "C:/Users/CAD-DESIGNER/Documents/GitHub/Nassef_Egyptian_Pyramids_App/nassef_egyption_pyramid_app/src/main/java/nassef_egyptian_pyramids_app/pharaoh.json";
+        String pyramidFile = "C:/Users/CAD-DESIGNER/Documents/GitHub/Nassef_Egyptian_Pyramids_App/nassef_egyption_pyramid_app/src/main/java/nassef_egyptian_pyramids_app/pyramid.json";
         JSONArray pyramidJSONArray = JSONFile.readArray(pyramidFile);
 
         // create and initialize the pyramid array
