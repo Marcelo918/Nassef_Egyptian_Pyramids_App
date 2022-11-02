@@ -17,7 +17,7 @@ public class App
     public static void main( String[] args )
     {
         // create and start the app
-        EgyptianPyramidsAppExample app = new EgyptianPyramidsAppExample();
+        App app = new App();
         app.start();
     }
 
@@ -134,12 +134,44 @@ public class App
         }
     }
 
+    // print one pharaoh
+    private void printOnePharaoh() {
+        System.out.print("Enter a pharoah id: ");
+        Scanner userInput = new Scanner(System.in);
+        int i = userInput.nextInt();
+
+        if (i >= 0 && i <= 171) {
+            printMenuLine();
+            pharaohArray[i].print();
+            printMenuLine();
+        } else {
+            System.out.println("ERROR: Please enter an id number between 0 - 171.");
+        }
+
+
+        //printMenuLine();
+        //pharaohArray[i].print();
+        //printMenuLine();
+    }
+
     private Boolean executeCommand(Scanner scan, Character command) {
         Boolean success = true;
 
         switch (command) {
             case '1':
                 printAllPharaoh();
+                break;
+            case '2':
+                printOnePharaoh();
+                break;
+            case '3':
+                System.out.println("THREE: Hellow there");
+                break;
+            case '4':
+                System.out.println("FOUR: Hello there");
+                break;
+            case '5':
+                System.out.println("Five: Hello there");
                 break;
             case 'q':
                 System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
@@ -168,6 +200,10 @@ public class App
         System.out.printf("Command\t\tDescription\n");
         System.out.printf("-----\t\t-------------\n");
         printMenuCommand('1', "List all the pharoahs");
+        printMenuCommand('2', "Display a specific Egyptian pharaoh");
+        printMenuCommand('3', "List all the pyramids");
+        printMenuCommand('4', "Displays a specific pyramid");
+        printMenuCommand('5', "Displays a list of requested pyramids");
         printMenuCommand('q', "Quit");
         printMenuLine();
     }

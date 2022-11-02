@@ -168,6 +168,7 @@ public class EgyptianPyramidsAppExample {
     System.out.printf("Command\t\tDescription\n");
     System.out.printf("-------\t\t---------------------------------------\n");
     printMenuCommand('1', "List all the pharoahs");
+    printMenuCommand('2', "Display a specific");
     printMenuCommand('q', "Quit");
     printMenuLine();
   }
