@@ -17,4 +17,38 @@ public class Pyramid {
     name = pyramidName;
     contributors = pyramidContributors;
   }
+
+  // print contributors 
+  public void printContributors(Pharaoh[] tempPharaoh) {
+    int counter = 1;
+    Integer total = 0;
+    String name = "";
+    Integer cont = 0;
+    for (int i = 0; i < contributors.length; i++) {
+      for (int j = 0; j <tempPharaoh.length; j++) {
+        String temPharaoh = tempPharaoh[j].hieroglyphic;
+        if (temPharaoh.equals(contributors[i])) {
+          name = tempPharaoh[j].name;
+          cont = tempPharaoh[j].contribution;
+          total += tempPharaoh[j].contribution;
+          break;
+        }
+      }
+      System.out.println("        Contributor " + counter + ": "+ name + " " + cont + " gold coins");
+      counter++;
+    }
+    System.out.println("        Total contribution: " + total + " gold coins");
+  }
+
+  // print pyramid
+  public void print(Pharaoh[] tempPharaoh) {
+    System.out.printf("Pyramid %s\n", name);
+    System.out.printf("\tid: %d\n", id);
+    printContributors(tempPharaoh);
+  }
+
+  public void printName(Pharaoh[] tempPharaoh) {
+    System.out.println("    " + name);
+  }
+
 }

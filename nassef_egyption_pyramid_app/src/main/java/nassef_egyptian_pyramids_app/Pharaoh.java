@@ -37,4 +37,9 @@ public class Pharaoh {
     System.out.printf("\tcontribution: %d gold coins\n", contribution);
     System.out.printf("\thieroglyphic: %s\n", hieroglyphic);
   }
+
+  public String pharaohHieroglyphic() {
+    return this.hieroglyphic;
+
+  }
 }

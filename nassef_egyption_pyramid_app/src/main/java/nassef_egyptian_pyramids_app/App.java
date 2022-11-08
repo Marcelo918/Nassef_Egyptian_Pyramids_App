@@ -2,6 +2,7 @@ package nassef_egyptian_pyramids_app;
 
 import java.util.*;
 import org.json.simple.*;
+import java.util.HashSet;;
 
 /**
  * Hello world!
@@ -9,6 +10,7 @@ import org.json.simple.*;
  */
 public class App 
 {
+    HashSet<Integer> pyramidId = new HashSet<Integer>();
 
     // two arrays here for O(1) reading of the pharaohs and pyramids.
     // other structures or additional structures can be used
@@ -134,6 +136,15 @@ public class App
         }
     }
 
+    // print all pyramids
+    private void printAllPyramids() {
+        for (int i = 0; i < pyramidArray.length; i++) {
+            printMenuLine();
+            pyramidArray[i].print(pharaohArray);
+            printMenuLine();
+        }
+    }
+
     // print one pharaoh
     private void printOnePharaoh() {
         System.out.print("Enter a pharoah id: ");
@@ -147,11 +158,40 @@ public class App
         } else {
             System.out.println("ERROR: Please enter an id number between 0 - 171.");
         }
+    }
 
+    // print one pyramid
+    private void printOnePyramid() {
+        System.out.print("Enter a pyramid id: ");
+        Scanner userInputP = new Scanner(System.in);
+        int i = userInputP.nextInt();
 
-        //printMenuLine();
-        //pharaohArray[i].print();
-        //printMenuLine();
+        if (i >= 0 && i <= 99) {
+            printMenuLine();
+            pyramidArray[i].print(pharaohArray);
+            pyramidId.add(i);
+            printMenuLine();
+        } else {
+            System.out.println("ERROR: Please enter an id number between 0 - 99.");
+        }
+    }
+
+    // prints the list of requested pyramids
+    private void printSet() {
+        Iterator<Integer> it = pyramidId.iterator();
+        printMenuLine();
+        System.out.println("List of requested pyramids");
+        System.out.println("Id     Name");
+        System.out.println("---   -----");
+        //while(it.hasNext()) {
+            //System.out.println(it.next());
+            
+        //}
+        for (Integer i : pyramidId) {
+            System.out.print(i);
+            pyramidArray[i].printName(pharaohArray);
+        }
+        printMenuLine();
     }
 
     private Boolean executeCommand(Scanner scan, Character command) {
@@ -165,13 +205,13 @@ public class App
                 printOnePharaoh();
                 break;
             case '3':
-                System.out.println("THREE: Hellow there");
+                printAllPyramids();
                 break;
             case '4':
-                System.out.println("FOUR: Hello there");
+                printOnePyramid();
                 break;
             case '5':
-                System.out.println("Five: Hello there");
+                printSet();
                 break;
             case 'q':
                 System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
