@@ -5,19 +5,22 @@ import org.json.simple.*;
 import java.util.HashSet;;
 
 /**
- * Hello world!
- *
+ * Author: Marcelo Villalobos Diaz
+ * Date: November 08, 2022
+ * Class: CSIS26 - FA22
+ * Description: The Nassef's Egyptian Pyramids App should perform
+ * the commands listed in the menu.
  */
-public class App 
-{
+public class App {
+    // Set to store the IDs of requested pyramids
     HashSet<Integer> pyramidId = new HashSet<Integer>();
 
     // two arrays here for O(1) reading of the pharaohs and pyramids.
     // other structures or additional structures can be used
     protected Pharaoh[] pharaohArray;
     protected Pyramid[] pyramidArray;
-    public static void main( String[] args )
-    {
+
+    public static void main(String[] args) {
         // create and start the app
         App app = new App();
         app.start();
@@ -80,32 +83,32 @@ public class App
         }
     }
 
-        // initialize the pyramid array
-        private void initializePyramid(JSONArray pyramidJSONArray) {
-            // create array and hash map
-            pyramidArray = new Pyramid[pyramidJSONArray.size()];
+    // initialize the pyramid array
+    private void initializePyramid(JSONArray pyramidJSONArray) {
+        // create array and hash map
+        pyramidArray = new Pyramid[pyramidJSONArray.size()];
 
-            // initialize the array
-            for (int i = 0; i < pyramidJSONArray.size(); i++) {
-                // get the object
-                JSONObject o = (JSONObject) pyramidJSONArray.get(i);
+        // initialize the array
+        for (int i = 0; i < pyramidJSONArray.size(); i++) {
+            // get the object
+            JSONObject o = (JSONObject) pyramidJSONArray.get(i);
 
-                // parse the json object
-                Integer id = toInteger(o, "id");
-                String name = o.get("name").toString();
-                JSONArray contributorsJSONArray = (JSONArray) o.get("contributors");
-                String[] contributors = new String[contributorsJSONArray.size()];
-                for (int j = 0; j < contributorsJSONArray.size(); j++) {
+            // parse the json object
+            Integer id = toInteger(o, "id");
+            String name = o.get("name").toString();
+            JSONArray contributorsJSONArray = (JSONArray) o.get("contributors");
+            String[] contributors = new String[contributorsJSONArray.size()];
+            for (int j = 0; j < contributorsJSONArray.size(); j++) {
                 String c = contributorsJSONArray.get(j).toString();
                 contributors[j] = c;
-                }
-  
-                // add a new pyramid to array
-                Pyramid p = new Pyramid(id, name, contributors);
-                pyramidArray[i] = p;
-
             }
+
+            // add a new pyramid to array
+            Pyramid p = new Pyramid(id, name, contributors);
+            pyramidArray[i] = p;
+
         }
+    }
 
     // get a integer from a json object, and parse it
     private Integer toInteger(JSONObject o, String key) {
@@ -178,15 +181,12 @@ public class App
 
     // prints the list of requested pyramids
     private void printSet() {
-        Iterator<Integer> it = pyramidId.iterator();
+
         printMenuLine();
         System.out.println("List of requested pyramids");
         System.out.println("Id     Name");
         System.out.println("---   -----");
-        //while(it.hasNext()) {
-            //System.out.println(it.next());
-            
-        //}
+
         for (Integer i : pyramidId) {
             System.out.print(i);
             pyramidArray[i].printName(pharaohArray);

@@ -3,7 +3,8 @@ package nassef_egyptian_pyramids_app;
 // pharoah class, that corresponds to the information in the json file
 public class Pharaoh {
 
-  // using protected member values, so other classes in this package can have access
+  // using protected member values, so other classes in this package can have
+  // access
   protected Integer id;
   protected String name;
   protected Integer begin;
@@ -13,13 +14,12 @@ public class Pharaoh {
 
   // constructor
   public Pharaoh(
-    Integer pharaohId,
-    String pharaohName,
-    Integer pharaohBegin,
-    Integer pharaohEnd,
-    Integer pharaohContribution,
-    String pharaohHieroglyphic
-  ) {
+      Integer pharaohId,
+      String pharaohName,
+      Integer pharaohBegin,
+      Integer pharaohEnd,
+      Integer pharaohContribution,
+      String pharaohHieroglyphic) {
     id = pharaohId;
     name = pharaohName;
     begin = pharaohBegin;
@@ -38,6 +38,7 @@ public class Pharaoh {
     System.out.printf("\thieroglyphic: %s\n", hieroglyphic);
   }
 
+  // prints the hieroglyphic of a pharaoh
   public String pharaohHieroglyphic() {
     return this.hieroglyphic;
 

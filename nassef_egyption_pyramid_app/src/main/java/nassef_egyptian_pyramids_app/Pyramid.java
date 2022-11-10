@@ -9,23 +9,22 @@ public class Pyramid {
 
   // constructor
   public Pyramid(
-    Integer pyramidId,
-    String pyramidName,
-    String[] pyramidContributors
-  ) {
+      Integer pyramidId,
+      String pyramidName,
+      String[] pyramidContributors) {
     id = pyramidId;
     name = pyramidName;
     contributors = pyramidContributors;
   }
 
-  // print contributors 
+  // print contributors
   public void printContributors(Pharaoh[] tempPharaoh) {
     int counter = 1;
     Integer total = 0;
     String name = "";
     Integer cont = 0;
     for (int i = 0; i < contributors.length; i++) {
-      for (int j = 0; j <tempPharaoh.length; j++) {
+      for (int j = 0; j < tempPharaoh.length; j++) {
         String temPharaoh = tempPharaoh[j].hieroglyphic;
         if (temPharaoh.equals(contributors[i])) {
           name = tempPharaoh[j].name;
@@ -34,7 +33,7 @@ public class Pyramid {
           break;
         }
       }
-      System.out.println("        Contributor " + counter + ": "+ name + " " + cont + " gold coins");
+      System.out.println("        Contributor " + counter + ": " + name + " " + cont + " gold coins");
       counter++;
     }
     System.out.println("        Total contribution: " + total + " gold coins");
@@ -47,6 +46,7 @@ public class Pyramid {
     printContributors(tempPharaoh);
   }
 
+  // prints only the name of a pyramid
   public void printName(Pharaoh[] tempPharaoh) {
     System.out.println("    " + name);
   }
